@@ -1,0 +1,147 @@
+@import "variables.module";
+
+/* ----------------------------------------
+  Element Size
+---------------------------------------- */
+
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+/* ----------------------------------------
+  Element Flexbox
+---------------------------------------- */
+
+@mixin flex($justify-content, $align-items) {
+  display: flex;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}
+
+/* ----------------------------------------
+  Box Shadow
+---------------------------------------- */
+
+@mixin boxShadow {
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.06);
+}
+
+/* ----------------------------------------
+  Popup Shadow
+---------------------------------------- */
+
+@mixin popupShadow {
+  box-shadow: 0 3px 6px -4px #0000001f, 0 6px 16px #00000014,
+    0 9px 28px 8px #0000000d;
+}
+
+/* ----------------------------------------
+  Tooltip Shadow
+---------------------------------------- */
+
+@mixin tooltipShadow {
+  box-shadow: rgb(174, 174, 174) 0px 0px 10px;
+}
+
+/* ----------------------------------------
+  Card
+---------------------------------------- */
+
+@mixin card {
+  @include boxShadow;
+  // padding: 20px 0 10px;
+  box-sizing: border-box;
+  border: 1px solid $gray2;
+}
+
+/* ----------------------------------------
+  Finished Effect
+---------------------------------------- */
+
+@mixin finished($type) {
+  @if ($type == row) {
+    // width: 100%;
+    // height: calc(100% / 9 - 7px);
+  } @else if ($type == col) {
+  } @else if ($type == box) {
+  } @else {
+  }
+
+  // position: relative;
+  // display: inline-block;
+  // @include size(300px);
+  // // position: absolute;
+  // // overflow: hidden;
+  // background-color: black;
+
+  // &::before {
+  //   content: "";
+  //   position: absolute;
+  //   top: -30%;
+  //   right: -200%;
+  //   width: 50%;
+  //   height: 200%;
+  //   opacity: 0;
+  //   transform: rotate(30deg);
+  //   background: rgba(255, 255, 255, 0.13);
+  //   background: linear-gradient(
+  //     to right,
+  //     rgba(255, 255, 255, 0.13) 0%,
+  //     rgba(255, 255, 255, 0.13) 77%,
+  //     rgba(255, 255, 255, 0.5) 92%,
+  //     rgba(255, 255, 255, 0) 100%
+  //   );
+  //   animation: shine 2s 1s;
+  // }
+
+  // &::before,
+  // &::after {
+  //   @include size(100%);
+  //   content: "";
+  //   position: absolute;
+  //   opacity: 0.8;
+  // }
+
+  // &::before {
+  //   animation: left-out 0.8s ease-in-out forwards;
+  //   background: linear-gradient(to right, transparent, #fffbe6 80%);
+  // }
+  // &::after {
+  //   animation: right-out 0.8s ease-in-out forwards;
+  //   background: linear-gradient(to left, transparent, #fffbe6 80%);
+  // }
+}
+@keyframes shine {
+  to {
+    opacity: 1;
+    right: 210%;
+  }
+}
+@keyframes left-out {
+  0% {
+    left: -50%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes right-out {
+  0% {
+    left: 50%;
+  }
+  100% {
+    left: -100%;
+  }
+}
+
+/* ----------------------------------------
+  Media Query Breakpoint
+---------------------------------------- */
+
+@mixin breakpoint($width: 980px) {
+  @media only screen and (max-width: $width) {
+    @content;
+  }
+}

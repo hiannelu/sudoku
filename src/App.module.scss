@@ -1,0 +1,40 @@
+@import "./styles/main.module";
+// @import url("https://fonts.googleapis.com/css2?family=Open+Sans+Condensed&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap");
+// @import url("https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Potta+One&display=swap");
+
+body {
+  font-family: "Potta One", cursive;
+  // font-family: "Open Sans Condensed", sans-serif;
+  user-select: none;
+  // font-family: "Shadows Into Light", cursive;
+}
+
+.wrap {
+}
+
+.header {
+  width: 100%;
+  padding: 5px 40px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  color: $blue5;
+  background-color: $white;
+  font-size: max(3.4vmin, 1.4rem);
+  border-bottom: 2px solid $gray1;
+}
+
+.content {
+  // @include size(100%);
+  @include flex(center, center);
+  height: 100%;
+  padding: 60px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  box-sizing: border-box;
+  overflow: hidden;
+}

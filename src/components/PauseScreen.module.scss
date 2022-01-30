@@ -1,0 +1,69 @@
+@import "../styles/main.module";
+
+.wrap {
+  display: flex;
+  transition: 0.3s;
+
+  .block:first-child {
+    position: absolute;
+    left: calc(-100% - 60px);
+  }
+
+  &.active {
+    transform: translateX(calc(100% + 60px));
+  }
+}
+.block {
+  @extend %zoomIn;
+  width: 280px;
+  // position: absolute;
+  // display: grid;
+  // grid-template-columns: 1fr 1fr;
+  // gap: 20px;
+  transition: 0.3s;
+  // transform: translateX(calc(-100% - 20px));
+  // @include flex(center, center);
+  // flex-direction: column;
+
+  & > div {
+    @include size(280px, 80px);
+    @include flex(center, center);
+    border-radius: 10px;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+
+  // & > div:nth-child(2n):not(:first-child) {
+  //   margin-top: 20px;
+  // }
+
+  & > div:not(:last-child) {
+    margin-bottom: 20px;
+  }
+}
+
+.startWrapper {
+  @include flex(center, center);
+  margin: 60px;
+  flex-direction: column;
+}
+
+.start,
+.resume {
+  color: $white;
+  background-color: $blue5;
+}
+
+.level,
+.game {
+  background-color: $gray1;
+}
+
+.resume {
+  grid-row: 1;
+  grid-column: 2;
+}
+.start {
+  grid-row: 2;
+  grid-column: 1;
+}

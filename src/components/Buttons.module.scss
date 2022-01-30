@@ -1,0 +1,85 @@
+@import "../styles/main.module";
+
+$color: #adc6ff;
+
+.buttons {
+  @include flex(space-between, center);
+}
+
+.undo,
+.note,
+.hint {
+  @include size(100%, fit-content);
+  @include flex(center, center);
+  padding: 5px 0;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.3s;
+  cursor: pointer;
+
+  svg {
+    font-size: 6vmin;
+  }
+}
+
+.undo svg {
+  font-size: 7vmin;
+}
+
+.mode {
+  position: absolute;
+  left: calc(50% + 10px);
+  bottom: 5px;
+  color: $blue5;
+}
+
+.mode.on {
+  padding: 0 5px;
+  color: $white;
+  background-color: $blue5;
+  border-radius: 5px;
+}
+
+.circle {
+  position: absolute;
+  border-radius: 100%;
+  background-color: $color;
+  transform: translate(-50%, -50%);
+  animation: circle 1s linear;
+  opacity: 0.5;
+}
+
+@keyframes circle {
+  0% {
+    @include size(0);
+  }
+
+  100% {
+    @include size(500px);
+    opacity: 0;
+  }
+}
+
+.digits {
+  height: fit-content;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(5, 1fr);
+  align-self: center;
+
+  & > div {
+    @extend %cell;
+  }
+
+  @include breakpoint {
+    width: 100%;
+    & > div {
+      width: 100%;
+    }
+  }
+}
+
+.digits .erase {
+  color: $white;
+  background-color: $red;
+}

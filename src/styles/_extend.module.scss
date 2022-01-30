@@ -1,0 +1,91 @@
+@import "mixin.module";
+@import "variables.module";
+
+/* ----------------------------------------
+  Cell Layout
+---------------------------------------- */
+
+%cell {
+  @include size(6vmin);
+  @include flex(center, center);
+  min-width: 30px;
+  min-height: 30px;
+  border-radius: max(5px, 1vmin);
+  // border-radius: 10px;
+  font-weight: bold;
+  // font-size: 3vmin;
+  font-size: max(20px, 3vmin);
+  box-sizing: border-box;
+  background-color: $gray1;
+  cursor: pointer;
+}
+
+/* ----------------------------------------
+  Input Error
+---------------------------------------- */
+
+%inputError {
+  // border-color: var(--red);
+  animation: bounce 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+@keyframes bounce {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(20px);
+  }
+  50% {
+    transform: translateX(-20px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes zoom-in {
+  0% {
+    transform: scale(3);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+/* ----------------------------------------
+  Zoom In
+---------------------------------------- */
+%zoomIn {
+  animation: zoom-in 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+  @keyframes zoom-in {
+    0% {
+      transform: scale(3);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+}
+
+/* ----------------------------------------
+  Cell Error
+---------------------------------------- */
+
+%cellError {
+  animation: zoom-out-shake 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes zoom-out-shake {
+  0% {
+    transform: scale(2);
+  }
+  25% {
+    transform: scale(2) rotate(30deg);
+  }
+  50% {
+    transform: scale(2) rotate(-30deg);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

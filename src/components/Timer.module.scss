@@ -1,0 +1,84 @@
+@import "../styles/main.module";
+
+.wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @include breakpoint(980px) {
+    order: -1;
+    flex-direction: row;
+  }
+}
+
+.timer {
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  cursor: pointer;
+
+  &::before {
+    @include size(6rem);
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #caf0f8;
+    border-radius: 50%;
+    transition: 0.3s;
+    opacity: 0.6;
+    z-index: -1;
+  }
+
+  &::after {
+    content: "PAUSE";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.2rem;
+    visibility: hidden;
+  }
+
+  &:hover::before {
+    opacity: 1;
+    z-index: unset;
+  }
+  &:hover::after {
+    visibility: visible;
+  }
+
+  @include breakpoint(980px) {
+    top: unset;
+    left: unset;
+    right: 0;
+    transform: unset;
+    font-size: 1rem;
+
+    &::before,
+    &::after {
+      display: none;
+    }
+    // &::before {
+    //   @include size(20px);
+    //   display: block;
+    //   background-color: $blue5;
+    //   border-radius: 5px;
+    //   opacity: 0.8;
+    // }
+
+    // &::after {
+    //   content: "";
+    //   @include size(10px);
+    //   position: absolute;
+    //   border-left: 2px solid $white;
+    //   border-right: 2px solid $white;
+    //   z-index: 1;
+    // }
+  }
+}
